@@ -1,4 +1,4 @@
-package com.example.caliculator;
+package com.example.calculator;
 
 import java.time.LocalDate;
 import java.time.Month;
@@ -27,9 +27,22 @@ public class Calculator {
         HOLIDAYS.add(MonthDay.of(Month.JUNE, 12));
         HOLIDAYS.add(MonthDay.of(Month.NOVEMBER, 4));
     }
-    private Double averageSalary;
+    private double averageSalary;
+
+    public void setStartDay(LocalDate startDay) {
+        this.startDay = startDay;
+    }
+
+    public void setStopDay(LocalDate stopDay) {
+        this.stopDay = stopDay;
+    }
+
     private LocalDate startDay;
     private LocalDate stopDay;
+
+        public Calculator(){
+
+        }
 
         public Calculator(double averageSalary,LocalDate startDay,LocalDate stopDay){
             this.averageSalary = averageSalary;
@@ -73,7 +86,7 @@ public class Calculator {
             return HOLIDAYS.contains(toMonthDay(day));
     }
 
-    public Double getResult() {
+    public double getResult() {
         double result = 0;
         if(isValidAverageSalary(averageSalary)
                 &&isValidStartDay(startDay)

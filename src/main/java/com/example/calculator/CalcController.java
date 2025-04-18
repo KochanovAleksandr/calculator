@@ -1,4 +1,4 @@
-package com.example.caliculator;
+package com.example.calculator;
 import java.time.LocalDate;
 
 //import org.springframework.http.HttpStatus;
