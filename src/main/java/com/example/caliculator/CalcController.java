@@ -18,8 +18,7 @@ public class CalcController {
     						@RequestParam(name = "startDay",required = false)LocalDate startDay,
     						@RequestParam(name = "stopDay", required = false) LocalDate stopDay,
     						Model model){
-	   System.out.println(startDay);
-	   System.out.println(stopDay);
+
 
     	
 		

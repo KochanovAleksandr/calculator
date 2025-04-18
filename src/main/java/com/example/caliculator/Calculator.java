@@ -52,11 +52,11 @@ public class Calculator {
                 for(LocalDate day = startDay;(!day.isAfter(stopDay));day = day.plusDays(1)){
                     if(!isHoliday(day)){
                         numberOfDays++;
-                        System.out.println(numberOfDays);
+
                     }
                 }
             }
-            System.out.println(numberOfDays);
+
             return numberOfDays;
     }
 
