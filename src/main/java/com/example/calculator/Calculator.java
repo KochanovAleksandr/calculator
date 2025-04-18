@@ -56,7 +56,7 @@ public class Calculator {
         return averageSalary;
     }
 
-    public void setAnnualSalary(double annualSalary) {
+    public void setAnnualSalary(double averageSalary) {
         this.averageSalary = averageSalary;
     }
     public  int getNumberOfVacationDays(LocalDate startDay,LocalDate stopDay){
