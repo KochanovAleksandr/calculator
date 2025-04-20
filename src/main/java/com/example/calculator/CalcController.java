@@ -14,15 +14,16 @@ public class CalcController {
 	
 	
    @GetMapping
-   public String calculate(	@RequestParam( name = "averageSalary",required = false,defaultValue = "0") Double averageSalary,
+   public String calculate(	@RequestParam( name = "averageSalary",required = false) Double averageSalary,
+                            @RequestParam(name = "numberOfDay",required = false) Integer numberOfDay,
     						@RequestParam(name = "startDay",required = false)LocalDate startDay,
     						@RequestParam(name = "stopDay", required = false) LocalDate stopDay,
     						Model model){
 
 
-    	
+
 		
-        model.addAttribute("vacationPayments", String.format("%.2f", new Calculator(averageSalary,startDay,stopDay).getResult()));
+        model.addAttribute("vacationPayments", String.format("%.2f", new Calculator(averageSalary,numberOfDay,startDay,stopDay).getResult()));
         
                 return "calculate";
     }

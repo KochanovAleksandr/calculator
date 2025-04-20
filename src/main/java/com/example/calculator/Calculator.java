@@ -27,16 +27,8 @@ public class Calculator {
         HOLIDAYS.add(MonthDay.of(Month.JUNE, 12));
         HOLIDAYS.add(MonthDay.of(Month.NOVEMBER, 4));
     }
-    private double averageSalary;
-
-    public void setStartDay(LocalDate startDay) {
-        this.startDay = startDay;
-    }
-
-    public void setStopDay(LocalDate stopDay) {
-        this.stopDay = stopDay;
-    }
-
+    private Double averageSalary;
+    private Integer numberOfDays;
     private LocalDate startDay;
     private LocalDate stopDay;
 
@@ -44,19 +36,26 @@ public class Calculator {
 
         }
 
-        public Calculator(double averageSalary,LocalDate startDay,LocalDate stopDay){
+        public Calculator(Double averageSalary,Integer numberOfDays,LocalDate startDay,LocalDate stopDay){
             this.averageSalary = averageSalary;
+            this.numberOfDays = numberOfDays;
             this.startDay = startDay;
             this.stopDay = stopDay;
         }
 
 
 
-    public double getAnnualSalary() {
+    public double getAverageSalary() {
         return averageSalary;
     }
+    public void setStartDay(LocalDate startDay) {
+        this.startDay = startDay;
+    }
+    public void setStopDay(LocalDate stopDay) {
+        this.stopDay = stopDay;
+    }
 
-    public void setAnnualSalary(double averageSalary) {
+    public void setAverageSalary(double averageSalary) {
         this.averageSalary = averageSalary;
     }
     public  int getNumberOfVacationDays(LocalDate startDay,LocalDate stopDay){
@@ -82,16 +81,22 @@ public class Calculator {
     public boolean isValidAverageSalary(Double averageSalary){
             return averageSalary!=null&&averageSalary>0;
     }
+    public boolean isValidNumberOfDay(Integer numberOfDays){
+    return numberOfDays!=null&&numberOfDays>0;
+    }
     public boolean isHoliday(LocalDate day){
             return HOLIDAYS.contains(toMonthDay(day));
     }
 
-    public double getResult() {
+    public Double getResult() {
         double result = 0;
         if(isValidAverageSalary(averageSalary)
                 &&isValidStartDay(startDay)
                 &&isValidStopDay(stopDay)){
             result = averageSalary/AVERAGE_NUMBER_OF_DAYS_PER_MONTH*getNumberOfVacationDays(startDay,stopDay);
+        } else if (isValidAverageSalary(averageSalary)&&isValidNumberOfDay(numberOfDays)) {
+            result = averageSalary/AVERAGE_NUMBER_OF_DAYS_PER_MONTH*numberOfDays;
+
         }
 
         return  result;
